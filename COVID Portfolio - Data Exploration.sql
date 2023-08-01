@@ -55,7 +55,7 @@ Group by continent
 order by TotalDeathCount desc
 
 
---GLOBAL NUMEBERS
+--GLOBAL NUMBERS
 Select 
 --	date,
 	SUM(new_cases) as TotalCases, 
@@ -75,7 +75,7 @@ Select
 		dea.date, 
 		dea.population, 
 		vac.new_vaccinations,
-		sum(convert (int, vac.new_vaccinations)) over (Partition by dea.Location Order by dea.location, dea.date) as RollingPeopleVaccinated,
+		sum(convert (int, vac.new_vaccinations)) over (Partition by dea.Location Order by dea.location, dea.date) as RollingPeopleVaccinated
 
 from PortfolioProject..CovidDeaths dea
 Join PortfolioProjects..CovidVaccination vac
